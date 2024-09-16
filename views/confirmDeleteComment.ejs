@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4 justify-content-center align-items-center" style="width: 500px; background-color:rgb(60, 65, 65); color:antiquewhite;">
+            <!-- <div class="image d-flex flex-column justify-content-center align-items-center"> -->
+            <div class="icon-box" style="color: #f15e5e; font-size: 46px; display: inline-block; margin-top: 13px;">
+                <h1 class="material-icons" style="border: red;">X</h2>
+            </div>
+            <h4 style="text-align: center; font-size: 26px; margin: 30px 0 -10px;">Are you sure?</h4>
+            <div class="px-2 rounded mt-4 date">
+                <span class="subheading" style="align-items: centre;">Do you really want to delete these records? This process cannot be undone.</span>
+            </div>
+            <div class="d-flex mt-2">
+                <button class="btn btn-secondary" style="margin-right: 30px;" onclick="window.location.href = '/blog/<%= blog._id %>'">
+                    Cancel
+                </button>
+                <button class="btn btn-danger" onclick="window.location.href = '/blog/delete-comment/<%= comment._id %>'">
+                    Delete
+                </button>
+            </div>
+               
+                
+
+            
+        </div>
+    </div>
+
+    <%- include("./partials/script.ejs") %>
+</body>
+</html>

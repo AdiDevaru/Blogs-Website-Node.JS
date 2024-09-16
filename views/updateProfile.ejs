@@ -1,0 +1,59 @@
+<!-- <%= JSON.stringify(user) %> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Update Profile</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container mt-4">
+        <!-- <div class="image d-flex flex-column justify-content-center align-items-center"> -->
+            <form method="post" action="/user/update-profile/<%= user._id %>" enctype="multipart/form-data">
+                
+                <div class="mb-3 image d-flex flex-column justify-content-center align-items-center">
+                    <button class="btn btn-secondary">
+                        <img src="<%= user.profileImageURL %>" height="300" width="300" />
+                    </button>
+                    <input
+                        type="file"
+                        class="form-control"
+                        id="profileImage"
+                        name="profileImage"
+                        aria-describedby="profileImage"
+                        style="width: 200px; font-size: small; text-align: center;"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="fullName"
+                        name="fullName"
+                        aria-describedby="fullName"
+                        value="<%= user.fullName %>"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        aria-describedby="email"
+                        value="<%= user.email %>"
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+
+            </form>
+        <!-- </div> -->
+    </div>
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>

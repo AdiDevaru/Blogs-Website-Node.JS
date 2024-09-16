@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <!-- <%= JSON.stringify(locals.user) %> -->
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4" style="height: 500px; width: 350px; background-color:rgb(60, 65, 65); color:antiquewhite;">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <button class="btn btn-secondary" >
+                    <img
+                    src="<%= users.profileImageURL %>"
+                    height="250"
+                    width="250"
+                    />
+                </button>
+                <span class="name mt-3"><b><%= users.fullName %></b></span>
+                <span class="idd"><%= users.email %></span>
+           
+                <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                    <span class="idd1">(<%= users.role %>)</span>
+                    <span><i class="fa fa-copy"></i></span>
+                </div>
+
+                <% if (user && user._id == users._id) { %>
+                    <div class="d-flex mt-2">
+                        <button class="btn btn-primary" onclick="window.location.href = '/user/update-profile/<%= user._id %>'">
+                            Edit Profile
+                        </button>
+                    </div>
+                <% } else { %>
+                    <!-- <p></p> -->
+                <% } %>
+                
+                <div class="px-2 rounded mt-4 date">
+                    <span class="subheading">Joined on <%= users.createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long'}) %> %></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>

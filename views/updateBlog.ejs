@@ -1,0 +1,60 @@
+<!-- <%= JSON.stringify(user) %> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Update Profile</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container mt-4">
+        <!-- <div class="image d-flex flex-column justify-content-center align-items-center"> -->
+            <form method="post" action="/blog/update-blog/<%= blog._id %>" enctype="multipart/form-data">
+                
+                <div class="mb-3 image d-flex flex-column justify-content-center align-items-center">
+                    <button class="btn btn-secondary">
+                        <img src="<%= blog.coverImageURL %>" height="300" width="500" />
+                    </button>
+                    <input
+                        type="file"
+                        class="form-control"
+                        id="coverImage"
+                        name="coverImage"
+                        aria-describedby="coverImage"
+                        style="text-align: center; width: 200px; font-size:small"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="title"
+                        name="title"
+                        aria-describedby="title"
+                        value="<%= blog.title %>"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="body" class="form-label">Body</label>
+                    <textarea class="form-control" id="body" name="body" rows="3" cols="5"><%= blog.body %></textarea>
+                    <!-- <input
+                        type="text"
+                        class="form-control"
+                        id="body"
+                        name="body"
+                        aria-describedby="body"
+                        value="<%= blog.body %>"
+                    /> -->
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+
+            </form>
+        <!-- </div> -->
+    </div>
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>

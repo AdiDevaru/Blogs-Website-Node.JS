@@ -1,0 +1,32 @@
+<!-- <%= JSON.stringify(user) %> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Update Profile</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container mt-4" >
+            <form method="post" action="/blog/update-comment/<%= comment._id %>">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Comment</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="content"
+                        name="content"
+                        aria-describedby="content"
+                        value="<%= comment.content %>"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+
+            </form>
+    </div>
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>
